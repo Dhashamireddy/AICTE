@@ -1,0 +1,15 @@
+# Secrets
+.env
+# Python
+venv/
+__pycache__/
+*.pyc
+*.db
+.pytest_cache/
+# Node
+node_modules/
+dist/
+# Data (keep folder, ignore large PDFs/vector DB)
+backend/data/handbooks/*.pdf
+backend/data/chroma/
+.DS_Store
