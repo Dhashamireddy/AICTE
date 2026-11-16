@@ -1,11 +1,4 @@
-from fastapi.testclient import TestClient
-
-from app.main import app
-
-client = TestClient(app)
-
-
-def test_health_returns_healthy():
+def test_health_returns_healthy(client):
     response = client.get("/api/health")
     assert response.status_code == 200
     body = response.json()
@@ -13,6 +6,6 @@ def test_health_returns_healthy():
     assert body["database"] == "connected"
 
 
-def test_health_includes_disclaimer():
+def test_health_includes_disclaimer(client):
     body = client.get("/api/health").json()
     assert "not an official" in body["disclaimer"].lower()
